@@ -1,7 +1,8 @@
-package com.customerManagement.customermanagement.Infraestructure.controller;
+package com.customerManagement.customermanagement.infraestructure.controllers;
 
-import com.customerManagement.customermanagement.Infraestructure.models.Users;
-import com.customerManagement.customermanagement.Infraestructure.repository.UserRepository;
+import com.customerManagement.customermanagement.domain.models.Users;
+import com.customerManagement.customermanagement.infraestructure.repositories.port.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,10 @@ public class UsersController {
 
     private final UserRepository userRepository;
     @PostMapping
-    public ResponseEntity<?> saveUsers(@RequestBody Users users){
+    public ResponseEntity<?> saveUsers(@RequestBody Users user){
         try{
-            Users userSave =userRepository.save(users);
-            return new ResponseEntity<Users>(userSave , HttpStatus.CREATED);
+            Users usersave =userRepository.save(user);
+            return new ResponseEntity<Users>(usersave , HttpStatus.CREATED);
         }catch (Exception e){
             return new ResponseEntity<String>(e.getCause().toString(),
                                      HttpStatus.INTERNAL_SERVER_ERROR);

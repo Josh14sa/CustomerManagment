@@ -1,4 +1,4 @@
-package com.customerManagement.customermanagement.Infraestructure.models;
+package com.customerManagement.customermanagement.domain.models;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
